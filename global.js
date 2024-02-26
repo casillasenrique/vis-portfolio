@@ -6,10 +6,7 @@ const setColorScheme = (colorScheme) => {
   localStorage.setItem('colorScheme', colorScheme);
 };
 
-const storedColorScheme = localStorage.getItem('colorScheme');
-if (storedColorScheme) {
-  setColorScheme(storedColorScheme);
-}
+
 
 const pages = {
   '': 'Home',
@@ -74,3 +71,10 @@ form.addEventListener('submit', (event) => {
 
   location.href = url;
 });
+
+const storedColorScheme = localStorage.getItem('colorScheme');
+if (storedColorScheme) {
+  setColorScheme(storedColorScheme);
+  const select = document.querySelector('select');
+  select.value = storedColorScheme;
+}
